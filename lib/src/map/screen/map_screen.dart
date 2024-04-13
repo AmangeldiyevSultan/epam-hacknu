@@ -11,7 +11,6 @@ import 'package:just_audio/just_audio.dart';
 import 'package:location/location.dart';
 import 'package:permission_handler/permission_handler.dart' as perm;
 import 'package:provider/provider.dart';
-import 'package:path_provider/path_provider.dart' as path;
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -122,8 +121,6 @@ class _MapScreenState extends State<MapScreen> {
     recorder.closeRecorder();
   }
 
-  String pathToFile = '';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,33 +133,25 @@ class _MapScreenState extends State<MapScreen> {
             final path = await recorder.stopRecorder();
             final audioFile = File(path!);
 
-            setState(() {
-              pathToFile = '';
-            });
-
             print('SLDCMSLKMCVLKSFMV');
             _audioBloc.add(AudioEvent.sendAudioEvent(audioFile: audioFile));
 
-            playLocalAudio(audioFile.path);
+            // playLocalAudio(audioFile.path);
 
-            bool doesExist = await audioFile.exists();
-            if (!doesExist) {
-              print("File does not exist: $path");
-            } else {
-              print("File exists, proceeding to play.");
-              await playLocalAudio(audioFile.path);
-            }
+            // bool doesExist = await audioFile.exists();
+            // if (!doesExist) {
+            //   print("File does not exist: $path");
+            // } else {
+            //   print("File exists, proceeding to play.");
+            //   await playLocalAudio(audioFile.path);
+            // }
 
             setState(() {});
 
             print('Recorded audio file: $audioFile');
           } else {
-            Directory? appDocDir =
-                await path.getApplicationDocumentsDirectory();
-
             await recorder.startRecorder(
-              toFile: '${appDocDir.path}/audio.wav',
-              // codec: Codec.flac,
+              toFile: 'audio-file.wav',
             );
 
             setState(() {});
