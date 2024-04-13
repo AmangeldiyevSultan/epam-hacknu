@@ -37,10 +37,12 @@ class LoginRoute extends GoRouteData {
   Widget build(BuildContext context, GoRouterState state) => const LoginPage();
 }
 
-@TypedGoRoute<LearningPageRoute>(path: LearningPage.routeName, name: 'learningpage')
+@TypedGoRoute<LearningPageRoute>(
+    path: LearningPage.routeName, name: 'learningpage')
 class LearningPageRoute extends GoRouteData {
   @override
-  Widget build(BuildContext context, GoRouterState state) => const LearningPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const LearningPage();
 }
 
 @TypedGoRoute<NavBarRoute>(path: NavBar.routeName, name: 'navbar')

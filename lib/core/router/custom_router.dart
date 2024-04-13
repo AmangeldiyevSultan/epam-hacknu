@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_epam_kazakh/src/auth/registration_widgets/sign_up_body.dart';
-import 'package:flutter_epam_kazakh/src/splash/screen/splash_screen.dart';
 
 class FadeTransitionPage<T> extends Page<T> {
   const FadeTransitionPage({

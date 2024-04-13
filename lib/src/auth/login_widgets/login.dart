@@ -4,7 +4,6 @@ import 'package:flutter_epam_kazakh/core/common/widgets/custom_text.dart';
 import 'package:flutter_epam_kazakh/core/common/widgets/custom_text_field.dart';
 import 'package:flutter_epam_kazakh/core/constant/color.dart';
 import 'package:flutter_epam_kazakh/generated/locale_keys.g.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_epam_kazakh/src/auth/registration_widgets/sign_up_body.dart';
 import 'package:go_router/go_router.dart';
 
