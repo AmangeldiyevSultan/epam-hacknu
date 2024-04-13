@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_epam_kazakh/core/common/provider/di_scope.dart';
+import 'package:flutter_epam_kazakh/core/constants/color.dart';
 import 'package:flutter_epam_kazakh/core/router/routes.dart';
 import 'package:flutter_epam_kazakh/src/app/di/app_scope.dart';
+import 'package:flutter_epam_kazakh/src/navbar/screen/navbar.dart';
+import 'package:flutter_epam_kazakh/src/map/screen/map_screen.dart';
 import 'package:flutter_epam_kazakh/src/splash/screen/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -36,9 +39,9 @@ class _MaterialContextState extends State<MaterialContext> {
       debugLogDiagnostics: true,
       routes: $appRoutes,
       redirect: (context, state) {
-        // if (state.matchedLocation == '/') {
-        //   return SplashScreen.routeName;
-        // }
+        if (state.matchedLocation == '/') {
+          return NavBar.routeName;
+        }
         return null;
       },
     );
@@ -60,6 +63,13 @@ class _MaterialContextState extends State<MaterialContext> {
           return _scope;
         },
         child: MaterialApp.router(
+          theme: ThemeData(
+            dialogBackgroundColor: Colors.white,
+            indicatorColor: lightBlue,
+            fontFamily: 'Manrope',
+            useMaterial3: true,
+            scaffoldBackgroundColor: scaffoldBackground,
+          ),
           routerConfig: _router,
 
           /// Localization.

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_epam_kazakh/src/navbar/screen/navbar.dart';
+import 'package:flutter_epam_kazakh/src/map/screen/map_screen.dart';
 import 'package:flutter_epam_kazakh/src/splash/screen/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,12 +10,17 @@ part 'routes.g.dart';
 @TypedGoRoute<SplashRoute>(path: SplashScreen.routeName, name: 'initial')
 class SplashRoute extends GoRouteData {
   @override
-  Widget build(BuildContext context, GoRouterState state) =>
-      const SplashScreen();
+  Widget build(BuildContext context, GoRouterState state) => const SplashScreen();
 }
 
 @TypedGoRoute<NavBarRoute>(path: NavBar.routeName, name: 'navbar')
 class NavBarRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) => const NavBar();
+}
+
+@TypedGoRoute<SpeakingRoute>(path: MapScreen.routeName, name: 'speaking')
+class SpeakingRoute extends GoRouteData {
+  @override
+  Widget build(BuildContext context, GoRouterState state) => const MapScreen();
 }
