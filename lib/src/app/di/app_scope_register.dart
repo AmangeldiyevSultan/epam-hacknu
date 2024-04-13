@@ -8,5 +8,6 @@ class AppScopeRegister {
     return AppScope(sharedPreferences);
   }
 
-  Future<SharedPreferences> _createSharedPreferences() => SharedPreferences.getInstance();
+  Future<SharedPreferences> _createSharedPreferences() =>
+      SharedPreferences.getInstance();
 }

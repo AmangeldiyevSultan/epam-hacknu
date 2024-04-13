@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_epam_kazakh/core/common/provider/di_scope.dart';
 import 'package:flutter_epam_kazakh/core/router/routes.dart';
 import 'package:flutter_epam_kazakh/src/app/di/app_scope.dart';
+import 'package:flutter_epam_kazakh/src/app/widget/learning_page.dart';
+import 'package:flutter_epam_kazakh/src/auth/registration_widgets/sign_up_body.dart';
 import 'package:flutter_epam_kazakh/src/splash/screen/splash_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MaterialContext extends StatefulWidget {
   const MaterialContext(
@@ -36,9 +40,9 @@ class _MaterialContextState extends State<MaterialContext> {
       debugLogDiagnostics: true,
       routes: $appRoutes,
       redirect: (context, state) {
-        // if (state.matchedLocation == '/') {
-        //   return SplashScreen.routeName;
-        // }
+        if (state.matchedLocation == '/') {
+          return LearningPage.routeName;
+        }
         return null;
       },
     );
